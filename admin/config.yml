@@ -1,0 +1,67 @@
+backend:
+  name: github
+  repo: Rynvosis/RynRPWiki
+  branch: master
+
+media_folder: "assets/images"
+public_folder: "/RynRPWiki/assets/images"
+
+collections:
+  - name: "skaagiran-imperium"
+    label: "Skaagiran Imperium"
+    folder: "empires/skaagiran-imperium"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "select", options: ["empire-index", "empire-page"], default: "empire-page" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Empire Slug", name: "empire", widget: "hidden", default: "skaagiran-imperium" }
+      - label: "Infobox"
+        name: "infobox"
+        widget: "object"
+        required: false
+        collapsed: true
+        fields:
+          - { label: "Species", name: "species", widget: "string", required: false }
+          - { label: "Species Class", name: "species_class", widget: "string", required: false }
+          - { label: "Traits", name: "traits", widget: "list", required: false }
+          - { label: "Ethics", name: "ethics", widget: "list", required: false }
+          - { label: "Civics", name: "civics", widget: "list", required: false }
+          - { label: "Authority", name: "authority", widget: "string", required: false }
+          - { label: "Origin", name: "origin", widget: "string", required: false }
+          - { label: "Homeworld", name: "homeworld", widget: "string", required: false }
+          - { label: "World Type", name: "homeworld_class", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "site-pages"
+    label: "Site Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "index.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "home" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "empires-data"
+    label: "Empire Registry"
+    files:
+      - label: "Empires"
+        name: "empires"
+        file: "_data/empires.yml"
+        fields:
+          - label: "Empires"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Accent Color", name: "accent", widget: "color" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - label: "Sections"
+                name: "sections"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "File", name: "file", widget: "string" }
