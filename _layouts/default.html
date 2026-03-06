@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% assign current_empire = nil %}
+  {% if page.empire %}
+    {% for e in site.data.empires %}
+      {% if e.slug == page.empire %}
+        {% assign current_empire = e %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  <style>
+    :root {
+      --accent: {% if current_empire %}{{ current_empire.accent }}{% else %}#58a6ff{% endif %};
+    }
+  </style>
+</head>
+<body>
+  {% include sidebar.html %}
+  <main class="content">
+    {% if current_empire %}
+      {% include empire-nav.html empire=current_empire %}
+    {% endif %}
+    <article>
+      {{ content }}
+    </article>
+  </main>
+  <script>
+    document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+      document.querySelector('.sidebar').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.observer-block {
+  background: var(--observer-bg);
+  border: 1px solid var(--observer-border);
+  border-left: 4px solid var(--observer-border);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5em 0;
+
+  .observer-label {
+    color: var(--observer-label);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .observer-content {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<div class="empire-page">
+  {% if page.infobox %}
+    {% include infobox.html infobox=page.infobox title=page.title %}
+  {% endif %}
+  <div class="empire-content">
+    {{ content }}
+  </div>
+</div>

@@ -1,0 +1,20 @@
+title: "GridKitty Galactic Archives"
+description: "A comprehensive wiki documenting sci-fi empire designs"
+baseurl: "/RynRPWiki"
+url: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+sass:
+  sass_dir: _sass
+  style: compressed

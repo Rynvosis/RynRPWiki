@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="home">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+  <div class="empire-grid">
+    {% for empire in site.data.empires %}
+    <a href="{{ '/empires/' | append: empire.slug | append: '/' | relative_url }}" class="empire-card" style="--card-accent: {{ empire.accent }};">
+      <h2>{{ empire.name }}</h2>
+      <p class="tagline">{{ empire.tagline }}</p>
+      <span class="section-count">{{ empire.sections | size }} sections</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>

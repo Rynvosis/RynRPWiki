@@ -1,0 +1,42 @@
+{% assign info = include.infobox %}
+<aside class="infobox">
+  <h3 class="infobox-title">{{ include.title }}</h3>
+  <table>
+    {% if info.species %}
+    <tr><th>Species</th><td>{{ info.species }}</td></tr>
+    {% endif %}
+    {% if info.species_class %}
+    <tr><th>Class</th><td>{{ info.species_class }}</td></tr>
+    {% endif %}
+    {% if info.homeworld %}
+    <tr><th>Homeworld</th><td>{{ info.homeworld }}</td></tr>
+    {% endif %}
+    {% if info.homeworld_class %}
+    <tr><th>World Type</th><td>{{ info.homeworld_class }}</td></tr>
+    {% endif %}
+    {% if info.authority %}
+    <tr><th>Authority</th><td>{{ info.authority }}</td></tr>
+    {% endif %}
+    {% if info.origin %}
+    <tr><th>Origin</th><td>{{ info.origin }}</td></tr>
+    {% endif %}
+    {% if info.ethics %}
+    <tr>
+      <th>Ethics</th>
+      <td>{% for ethic in info.ethics %}{{ ethic }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</td>
+    </tr>
+    {% endif %}
+    {% if info.civics %}
+    <tr>
+      <th>Civics</th>
+      <td>{% for civic in info.civics %}{{ civic }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</td>
+    </tr>
+    {% endif %}
+    {% if info.traits %}
+    <tr>
+      <th>Traits</th>
+      <td>{% for trait in info.traits %}{{ trait }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</td>
+    </tr>
+    {% endif %}
+  </table>
+</aside>

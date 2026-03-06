@@ -1,0 +1,33 @@
+<button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+  </div>
+  <ul class="sidebar-empires">
+    {% for empire in site.data.empires %}
+      {% assign is_current = false %}
+      {% if page.empire == empire.slug %}
+        {% assign is_current = true %}
+      {% endif %}
+      <li class="empire-entry{% if is_current %} active{% endif %}">
+        <a href="{{ '/empires/' | append: empire.slug | append: '/' | relative_url }}" class="empire-link" style="--entry-accent: {{ empire.accent }};">
+          {{ empire.name }}
+        </a>
+        {% if is_current %}
+        <ul class="empire-sections">
+          {% for section in empire.sections %}
+            {% if section.file == "index" %}
+              {% assign section_url = '/empires/' | append: empire.slug | append: '/' %}
+            {% else %}
+              {% assign section_url = '/empires/' | append: empire.slug | append: '/' | append: section.file | append: '/' %}
+            {% endif %}
+            <li{% if page.url == section_url %} class="current"{% endif %}>
+              <a href="{{ section_url | relative_url }}">{{ section.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

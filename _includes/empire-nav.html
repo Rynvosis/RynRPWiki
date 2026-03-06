@@ -1,0 +1,13 @@
+{% assign empire = include.empire %}
+<nav class="empire-nav">
+  {% for section in empire.sections %}
+    {% if section.file == "index" %}
+      {% assign section_url = '/empires/' | append: empire.slug | append: '/' %}
+    {% else %}
+      {% assign section_url = '/empires/' | append: empire.slug | append: '/' | append: section.file | append: '/' %}
+    {% endif %}
+    <a href="{{ section_url | relative_url }}" class="empire-nav-link{% if page.url == section_url %} active{% endif %}">
+      {{ section.title }}
+    </a>
+  {% endfor %}
+</nav>

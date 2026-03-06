@@ -1,0 +1,54 @@
+.infobox {
+  float: right;
+  width: 280px;
+  margin: 0 0 1.5rem 1.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  overflow: hidden;
+
+  .infobox-title {
+    background: var(--bg-tertiary);
+    color: var(--accent);
+    padding: 0.75rem 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  table {
+    width: 100%;
+    margin: 0;
+    border: none;
+
+    th, td {
+      border: none;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+      vertical-align: top;
+    }
+
+    th {
+      width: 35%;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    td {
+      color: var(--text-primary);
+    }
+
+    tr:last-child th,
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background: transparent;
+    }
+  }
+}
